@@ -4,7 +4,7 @@ This repository contains a Python-based multi-agent simulation framework replica
 
 > **Evolution of cooperation guided by the coexistence of imitation learning and reinforcement learning**  
 > *Wei Tang, Guoling Wang, and Zhiyan Xing*  
-> Published in *Chaos: An Interdisciplinary Journal of Nonlinear Science* (2025)  
+> Published in *Scientific Reports* (2025), Nature Portfolio  
 > [Search on Google Scholar](https://scholar.google.com/scholar?q=Evolution+of+cooperation+guided+by+the+coexistence+of+imitation+learning+and+reinforcement+learning&hl=en&as_sdt=0,5)
 
 ---
