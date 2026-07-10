@@ -4,10 +4,9 @@ from typing import Optional
 
 @dataclass(frozen=True)
 class RLParams:
-    alpha: float = 0.3
-    phi: float = 0.01
+    phi: float = 0.8
     rho: float = 0.01
-    delta: float = 0.8
+    delta: float = 0.01
     beta: float = 1.0
     H0: float = 3.0
     F0_C: float = 3.0

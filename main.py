@@ -70,14 +70,11 @@ class RLParams:
 
     Notes
     -----
-    The paper clearly names these parameters and gives baseline values, but Eq. 5
-    is not fully recoverable from the extracted PDF text. So these parameters are
-    faithfully exposed, while the exact update algebra is isolated in one function.
+    Eq. 5 is now fully aligned with the Scientific Reports (2025) paper.
     """
-    alpha: float = 0.3
-    phi: float = 0.01
+    phi: float = 0.8
     rho: float = 0.01
-    delta: float = 0.8
+    delta: float = 0.01
     beta: float = 1.0
     H0: float = 3.0
     F0_C: float = 3.0
@@ -468,11 +465,11 @@ def rl_pending_strategy(
 
     numer_c = (
         params.phi * rl_state.H * rl_state.F_C
-        + params.alpha * np.where(chosen_c, realized, params.delta * payoff_if_c)
+        + np.where(chosen_c, realized, params.delta * payoff_if_c)
     )
     numer_d = (
         params.phi * rl_state.H * rl_state.F_D
-        + params.alpha * np.where(chosen_d, realized, params.delta * payoff_if_d)
+        + np.where(chosen_d, realized, params.delta * payoff_if_d)
     )
 
     rl_state.F_C = numer_c / new_H

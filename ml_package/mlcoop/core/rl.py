@@ -33,10 +33,10 @@ def rl_pending_strategy(strategies, payoff_if_c, payoff_if_d, rl_state, params, 
     # - experience weight H is updated each round.
     # If figure reproduction is poor, revise THIS function first.
     new_H = (1.0 - params.rho) * rl_state.H + 1.0
-    numer_c = params.phi * rl_state.H * rl_state.F_C + params.alpha * np.where(
+    numer_c = params.phi * rl_state.H * rl_state.F_C + np.where(
         chosen_c, realized, params.delta * payoff_if_c
     )
-    numer_d = params.phi * rl_state.H * rl_state.F_D + params.alpha * np.where(
+    numer_d = params.phi * rl_state.H * rl_state.F_D + np.where(
         chosen_d, realized, params.delta * payoff_if_d
     )
 
