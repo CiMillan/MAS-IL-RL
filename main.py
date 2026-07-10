@@ -51,9 +51,9 @@ STRATEGY_C = 1
 STRATEGY_D = 0
 
 PAYOFFS: Dict[str, np.ndarray] = {
-    "PDG": np.array([[1.0, 0.0], [10.0, 8.0]], dtype=float),
-    "CG":  np.array([[2.0, 0.0], [4.0, 1.0]], dtype=float),
-    "CoG": np.array([[3.0, 1.0], [0.0, 2.0]], dtype=float),
+    "PDG": np.array([[-1.0, -10.0], [0.0, -8.0]], dtype=float),
+    "CG":  np.array([[2.0, 0.0], [4.0, -1.0]], dtype=float),
+    "CoG": np.array([[3.0, 0.0], [0.0, 2.0]], dtype=float),
 }
 
 
@@ -633,8 +633,8 @@ def simulate_square_lattice(
 
 def paper_baseline_well_mixed(game_name: str, seed: Optional[int] = 42):
     pop_cfg = PopulationConfig(N=10_000, initial_cooperator_fraction=0.5, seed=seed)
-    rl_params = RLParams(alpha=0.3, phi=0.01, rho=0.01, delta=0.8, beta=1.0, H0=3.0, F0_C=3.0, F0_D=3.0)
-    il_params = ILParams(eta=0.5)
+    rl_params = RLParams(phi=0.8, rho=0.01, delta=0.01, beta=1.0, H0=3.0, F0_C=3.0, F0_D=3.0)
+    il_params = ILParams(eta=0.3)
     ml_params = MLParams(theta=0.5, max_steps=100)
     return simulate_well_mixed(game_name, pop_cfg, rl_params, il_params, ml_params)
 
@@ -642,8 +642,8 @@ def paper_baseline_well_mixed(game_name: str, seed: Optional[int] = 42):
 
 def paper_baseline_lattice(game_name: str, seed: Optional[int] = 42):
     pop_cfg = PopulationConfig(N=10_000, initial_cooperator_fraction=0.5, seed=seed)
-    rl_params = RLParams(alpha=0.3, phi=0.01, rho=0.01, delta=0.8, beta=1.0, H0=3.0, F0_C=3.0, F0_D=3.0)
-    il_params = ILParams(eta=0.5)
+    rl_params = RLParams(phi=0.8, rho=0.01, delta=0.01, beta=1.0, H0=3.0, F0_C=3.0, F0_D=3.0)
+    il_params = ILParams(eta=0.3)
     ml_params = MLParams(theta=0.5, max_steps=200)
     return simulate_square_lattice(game_name, rows=100, cols=100, pop_cfg=pop_cfg, rl_params=rl_params, il_params=il_params, ml_params=ml_params)
 
