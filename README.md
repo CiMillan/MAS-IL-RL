@@ -80,8 +80,6 @@ print("Final MFC (Mean Fraction of Cooperators):", results["mfc"][-1])
 
 ## ⚠️ Handling Paper Ambiguities
 
-During PDF text extraction of the original paper, certain mathematical formulas (especially Equation 5 for the RL attraction updates) are garbled or lack operational details.
-
 To make the codebase robust and easy to tune, we have isolated these assumptions behind explicit comments marked as:
 `# AMBIGUITY FROM PAPER`
 
